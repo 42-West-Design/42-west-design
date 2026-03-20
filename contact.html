@@ -78,21 +78,29 @@
 
 <!-- Loading Screen -->
 <div id="loading-screen">
-  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:6px 12px;" />
+  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:5px 12px;" />
   <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+</div>
+
+<!-- Consultation Bar -->
+<div id="consultation-bar">
+  FREE CONSULTATION — <a href="contact.html">Book a 30-min strategy call</a>
+  <button id="consultation-bar-close" aria-label="Close">&times;</button>
 </div>
 
 <!-- Navigation -->
 <nav id="main-nav" class="nav-monument">
   <a href="index.html" class="nav-logo" style="text-decoration:none;">
-    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:6px 12px;" />
+    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:5px 12px;" />
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html">SERVICES</a></li>
-    <li><a href="portfolio.html">WORK</a></li>
+    <li><a href="why-us.html">WHY US</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
     <li><a href="contact.html" class="active">CONTACT</a></li>
   </ul>
+  <a href="contact.html" class="btn-gold nav-cta">GET A QUOTE</a>
   <button class="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -100,9 +108,10 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu">
-  <a href="index.html#about">About</a>
+  <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="portfolio.html">Work</a>
+  <a href="why-us.html">Why Us</a>
+  <a href="portfolio.html">Portfolio</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -121,82 +130,52 @@
 
 <!-- Contact Section -->
 <section class="contact-section">
+  <span class="section-bg-num">02</span>
+  <div class="section-header">
+    <h2>GET IN TOUCH</h2>
+  </div>
   <div class="contact-grid">
 
-    <!-- Left: Contact Info -->
+    <!-- Left: Office Cards + Email -->
     <div class="contact-info">
-      <h2 class="reveal">Get in Touch</h2>
-      <p class="reveal">Whether you have a clear brief or just an idea on a napkin — we want to hear from you. Every great project starts with a conversation.</p>
 
-      <div class="response-promise reveal">
-        <span>⚡</span>
-        We respond to all inquiries within 24 hours
-      </div>
-
-      <!-- Office Cards -->
-      <div class="office-cards">
-        <div class="office-card reveal reveal-delay-1">
-          <div class="office-city">
-            <span>🌴</span>
-            Miami, FL
-          </div>
+      <div class="contact-offices">
+        <div class="office-card-monument reveal reveal-delay-1">
+          <span class="ocm-city">MIAMI — HQ</span>
           <address>
             100 SE 2nd St, Suite 2000<br />
             Miami, FL 33131<br />
-            <a href="tel:+13055550100" style="color:var(--gold);">+1 (305) 555-0100</a>
+            <a href="tel:+13055550100">+1 (305) 555-0100</a>
           </address>
         </div>
-
-        <div class="office-card reveal reveal-delay-2">
-          <div class="office-city">
-            <span>🗽</span>
-            New York, NY
-          </div>
+        <div class="office-card-monument reveal reveal-delay-2">
+          <span class="ocm-city">NEW YORK</span>
           <address>
             350 5th Ave, Suite 4100<br />
             New York, NY 10118<br />
-            <a href="tel:+12125550200" style="color:var(--gold);">+1 (212) 555-0200</a>
+            <a href="tel:+12125550200">+1 (212) 555-0200</a>
           </address>
         </div>
-
-        <div class="office-card reveal reveal-delay-3">
-          <div class="office-city">
-            <span>🌊</span>
-            San Diego, CA
-          </div>
+        <div class="office-card-monument reveal reveal-delay-3">
+          <span class="ocm-city">SAN DIEGO</span>
           <address>
             600 B St, Suite 300<br />
             San Diego, CA 92101<br />
-            <a href="tel:+16195550300" style="color:var(--gold);">+1 (619) 555-0300</a>
+            <a href="tel:+16195550300">+1 (619) 555-0300</a>
           </address>
         </div>
       </div>
 
-      <!-- Direct Contact -->
-      <div class="contact-direct reveal">
-        <a href="mailto:hello@42westdesign.com" class="contact-link">
-          <span class="icon">✉</span>
-          hello@42westdesign.com
-        </a>
-        <a href="tel:+13055550100" class="contact-link">
-          <span class="icon">☎</span>
-          +1 (305) 555-0100 (Main)
-        </a>
-        <a href="https://linkedin.com" class="contact-link" target="_blank" rel="noopener">
-          <span class="icon">in</span>
-          linkedin.com/company/42westdesign
-        </a>
-        <a href="https://instagram.com" class="contact-link" target="_blank" rel="noopener">
-          <span class="icon">ig</span>
-          @42westdesign
-        </a>
+      <div class="contact-email-direct reveal">
+        <a href="mailto:hello@42westdesign.com" class="ced-link">hello@42westdesign.com</a>
+        <p class="ced-note">We respond within 24 hours.</p>
       </div>
+
     </div>
 
     <!-- Right: Contact Form -->
     <div class="contact-form-wrap reveal-right">
       <h3>Tell Us About Your Project</h3>
-      <!-- Replace the Formspree URL below with your actual form ID from formspree.io -->
       <form id="contact-form" action="https://formspree.io/f/placeholder" method="POST">
         <div class="form-row">
           <div class="form-group">
@@ -218,16 +197,16 @@
           <label for="service">Service You're Interested In *</label>
           <select id="service" name="service" required>
             <option value="" disabled selected>Select a service…</option>
-            <option value="brand-identity">Brand Identity & Logo Design</option>
-            <option value="web-design">Web Design & Development</option>
+            <option value="brand-identity">Brand Identity &amp; Logo Design</option>
+            <option value="web-design">Web Design &amp; Development</option>
             <option value="packaging">Packaging Design</option>
             <option value="print">Print Design</option>
             <option value="social-media">Social Media Design</option>
-            <option value="motion">Motion Graphics & Animation</option>
+            <option value="motion">Motion Graphics &amp; Animation</option>
             <option value="ui-ux">UI/UX Design</option>
             <option value="photography">Photography Direction</option>
             <option value="marketing">Marketing Collateral</option>
-            <option value="environmental">Environmental & Signage</option>
+            <option value="environmental">Environmental &amp; Signage</option>
             <option value="multiple">Multiple Services</option>
             <option value="not-sure">Not Sure Yet</option>
           </select>
@@ -251,14 +230,13 @@
           <textarea id="message" name="message" rows="5" placeholder="Describe your project, goals, timeline, and anything else you'd like us to know…" required></textarea>
         </div>
 
-        <!-- Hidden fields for Formspree -->
         <input type="hidden" name="_subject" value="New project inquiry from 42westdesign.com" />
         <input type="hidden" name="_replyto" id="reply-to" />
         <input type="text" name="_gotcha" style="display:none" />
 
         <button type="submit" class="btn-gold-lg" style="width:100%;text-align:center;">Send Message →</button>
 
-        <p style="margin-top:16px;font-size:0.78rem;color:var(--text-muted);text-align:center;">
+        <p style="margin-top:16px;font-size:0.78rem;color:var(--text-muted);text-align:center;font-family:'Space Mono',monospace;letter-spacing:0.05em;">
           By submitting, you agree to our Privacy Policy. We never share your information.
         </p>
       </form>
@@ -267,43 +245,58 @@
   </div>
 </section>
 
-<!-- City Map Section -->
-<section class="city-map">
-  <div class="text-center reveal">
-    <span class="section-label">Our Locations</span>
-    <div class="gold-line centered"></div>
-    <h2 class="section-title">Three Studios, One Vision</h2>
-    <p class="section-sub">Based in three of America's most creative cities — and available to work with clients anywhere in the world.</p>
-  </div>
-  <div class="city-cards">
-    <div class="city-card reveal reveal-delay-1">
-      <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&w=700&q=80" alt="Miami skyline" class="city-card-img" loading="lazy" />
-      <div class="city-card-body">
-        <h3>🌴 Miami, FL — HQ</h3>
-        <p>100 SE 2nd St, Suite 2000<br />Miami, FL 33131<br /><a href="tel:+13055550100" style="color:var(--gold);">+1 (305) 555-0100</a></p>
-      </div>
-    </div>
-    <div class="city-card reveal reveal-delay-2">
-      <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=700&q=80" alt="New York skyline" class="city-card-img" loading="lazy" />
-      <div class="city-card-body">
-        <h3>🗽 New York, NY</h3>
-        <p>350 5th Ave, Suite 4100<br />New York, NY 10118<br /><a href="tel:+12125550200" style="color:var(--gold);">+1 (212) 555-0200</a></p>
-      </div>
-    </div>
-    <div class="city-card reveal reveal-delay-3">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="San Diego beach" class="city-card-img" loading="lazy" />
-      <div class="city-card-body">
-        <h3>🌊 San Diego, CA</h3>
-        <p>600 B St, Suite 300<br />San Diego, CA 92101<br /><a href="tel:+16195550300" style="color:var(--gold);">+1 (619) 555-0300</a></p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Response Promise -->
+<div class="contact-response-bar">
+  <span class="crb-inner">We respond to every inquiry within 24 hours — guaranteed.</span>
+</div>
 
-<!-- Footer — Monument -->
-<footer class="footer-monument">
-  <span>© 2026 42 WEST DESIGN</span>
-  <span>ALL RIGHTS RESERVED</span>
+<!-- Footer -->
+<footer class="footer-grid-monument">
+  <div class="fgm-inner">
+    <div class="fgm-col fgm-brand">
+      <img src="images/logo.jpg" alt="42 West Design" style="background:#fff;padding:5px 12px;" />
+      <p class="fgm-tagline">Design — Art Direction — Brand</p>
+      <div class="fgm-socials">
+        <a href="https://www.linkedin.com/company/42westdesign" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/42westdesign" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.behance.net/42westdesign" target="_blank" rel="noopener">BEHANCE</a>
+      </div>
+    </div>
+    <div class="fgm-col">
+      <h4>SERVICES</h4>
+      <ul>
+        <li><a href="services.html">Brand Identity</a></li>
+        <li><a href="services.html">Web Design</a></li>
+        <li><a href="services.html">Print &amp; Editorial</a></li>
+        <li><a href="services.html">Art Direction</a></li>
+        <li><a href="services.html">Motion &amp; Digital</a></li>
+        <li><a href="services.html">Environmental Design</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>STUDIO</h4>
+      <ul>
+        <li>Miami, FL</li>
+        <li>New York, NY</li>
+        <li>San Diego, CA</li>
+        <li><a href="mailto:hello@42westdesign.com">hello@42westdesign.com</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>NAVIGATE</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fgm-bottom">
+    <span>© 2026 42 WEST DESIGN</span>
+    <span>ALL RIGHTS RESERVED</span>
+  </div>
 </footer>
 
 <!-- Back to Top -->
@@ -311,7 +304,7 @@
 
 <!-- Cookie Consent -->
 <div id="cookie-consent">
-  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--gold)">Privacy Policy</a>.</p>
+  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--white)">Privacy Policy</a>.</p>
   <div class="cookie-btns">
     <button class="btn-cookie-accept" id="cookie-accept">Accept</button>
     <button class="btn-cookie-decline" id="cookie-decline">Decline</button>
@@ -347,7 +340,6 @@
 <script src="js/chat.js"></script>
 
 <script>
-  // Mirror email to _replyto hidden field for Formspree
   document.getElementById('email').addEventListener('input', function() {
     document.getElementById('reply-to').value = this.value;
   });

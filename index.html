@@ -89,21 +89,29 @@
 
 <!-- Loading Screen -->
 <div id="loading-screen">
-  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:6px 12px;" />
+  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:5px 12px;" />
   <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+</div>
+
+<!-- Consultation Bar -->
+<div id="consultation-bar">
+  FREE CONSULTATION — <a href="contact.html">Book a 30-min strategy call</a>
+  <button id="consultation-bar-close" aria-label="Close">&times;</button>
 </div>
 
 <!-- Navigation -->
 <nav id="main-nav" class="nav-monument">
-  <a href="index.html" class="nav-logo nav-logo-text-wrap" style="text-decoration:none;">
-    <span class="nav-logo-text">42 WEST</span>
+  <a href="index.html" class="nav-logo" style="text-decoration:none;">
+    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:5px 12px;" />
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#about" class="active">ABOUT</a></li>
+    <li><a href="index.html" class="active">HOME</a></li>
     <li><a href="services.html">SERVICES</a></li>
-    <li><a href="portfolio.html">WORK</a></li>
+    <li><a href="why-us.html">WHY US</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
+  <a href="contact.html" class="btn-gold nav-cta">GET A QUOTE</a>
   <button class="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -111,9 +119,10 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu">
-  <a href="index.html#about">About</a>
+  <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="portfolio.html">Work</a>
+  <a href="why-us.html">Why Us</a>
+  <a href="portfolio.html">Portfolio</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -174,6 +183,31 @@
   </div>
 </section>
 
+<!-- Stats Bar -->
+<div id="stats-bar" class="stats-bar-monument">
+  <div class="stats-bar-inner">
+    <div class="stat-bar-item">
+      <div class="stat-number" data-target="500" data-suffix="+">500+</div>
+      <div class="stat-bar-label">PROJECTS DELIVERED</div>
+    </div>
+    <div class="stat-bar-divider"></div>
+    <div class="stat-bar-item">
+      <div class="stat-number" data-target="20" data-suffix="+">20+</div>
+      <div class="stat-bar-label">YEARS EXPERIENCE</div>
+    </div>
+    <div class="stat-bar-divider"></div>
+    <div class="stat-bar-item">
+      <div class="stat-number" data-target="3">3</div>
+      <div class="stat-bar-label">STUDIO CITIES</div>
+    </div>
+    <div class="stat-bar-divider"></div>
+    <div class="stat-bar-item">
+      <div class="stat-number" data-target="98" data-suffix="%">98%</div>
+      <div class="stat-bar-label">CLIENT SATISFACTION</div>
+    </div>
+  </div>
+</div>
+
 <!-- Services Section — Monument -->
 <section id="services-monument">
   <span class="section-bg-num">02</span>
@@ -214,7 +248,7 @@
   </div>
 </section>
 
-<!-- Work Section — Monument -->
+<!-- Work / Featured Work — Monument -->
 <section id="work-monument">
   <span class="section-bg-num">03</span>
   <div class="section-header">
@@ -255,10 +289,141 @@
   </div>
 </section>
 
-<!-- Footer — Monument -->
-<footer class="footer-monument">
-  <span>© 2026 42 WEST DESIGN</span>
-  <span>ALL RIGHTS RESERVED</span>
+<!-- Testimonials Section -->
+<section id="testimonials">
+  <span class="section-bg-num">04</span>
+  <div class="section-header">
+    <h2>WHAT CLIENTS SAY</h2>
+  </div>
+  <div class="testimonials-monument-grid">
+
+    <div class="testimonial-card-monument">
+      <div class="tcm-stars">★★★★★</div>
+      <blockquote class="tcm-quote">"Working with 42 West transformed our brand completely. The attention to detail is unlike anything we've experienced."</blockquote>
+      <div class="tcm-attribution">
+        <span class="tcm-name">Marcus T.</span>
+        <span class="tcm-company">CEO, Vantage Capital</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card-monument">
+      <div class="tcm-stars">★★★★★</div>
+      <blockquote class="tcm-quote">"They don't just design — they think. Every decision was strategic and beautifully executed."</blockquote>
+      <div class="tcm-attribution">
+        <span class="tcm-name">Elena R.</span>
+        <span class="tcm-company">Founder, Studio Noue</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card-monument">
+      <div class="tcm-stars">★★★★★</div>
+      <blockquote class="tcm-quote">"From concept to delivery, flawless. Our website traffic tripled within 60 days of launch."</blockquote>
+      <div class="tcm-attribution">
+        <span class="tcm-name">James W.</span>
+        <span class="tcm-company">CMO, Meridian Group</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Why Us Teaser -->
+<section id="why-us-teaser">
+  <div class="why-us-teaser-grid">
+    <div class="wut-left">
+      <div class="wut-statement">
+        <span class="solid">200+ BRANDS</span>
+        <span class="outline">TRUST 42 WEST</span>
+        <span class="solid">DESIGN</span>
+      </div>
+    </div>
+    <div class="wut-right">
+      <ul class="wut-list">
+        <li>Award-Winning Team</li>
+        <li>Full-Service Studio</li>
+        <li>Unlimited Revisions</li>
+        <li>Proven ROI</li>
+      </ul>
+      <a href="why-us.html" class="wut-link">SEE WHY WE'RE DIFFERENT →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section id="cta-banner">
+  <span class="section-bg-num">05</span>
+  <div class="cta-banner-monument">
+    <div class="cta-headline">
+      <span class="solid">LET'S WORK</span>
+      <span class="outline">TOGETHER.</span>
+    </div>
+    <p>Ready to start your next project? We respond within 24 hours.</p>
+    <div class="cta-btn-row">
+      <a href="contact.html" class="btn-gold-lg">START A PROJECT →</a>
+      <a href="portfolio.html" class="btn-gold-lg">VIEW OUR WORK →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section id="newsletter">
+  <div class="newsletter-monument">
+    <span class="newsletter-label">STAY IN THE LOOP</span>
+    <h2 class="newsletter-heading">Design insights, studio news, and project reveals — direct to your inbox.</h2>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email address" required />
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-grid-monument">
+  <div class="fgm-inner">
+    <div class="fgm-col fgm-brand">
+      <img src="images/logo.jpg" alt="42 West Design" style="background:#fff;padding:5px 12px;" />
+      <p class="fgm-tagline">Design — Art Direction — Brand</p>
+      <div class="fgm-socials">
+        <a href="https://www.linkedin.com/company/42westdesign" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/42westdesign" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.behance.net/42westdesign" target="_blank" rel="noopener">BEHANCE</a>
+      </div>
+    </div>
+    <div class="fgm-col">
+      <h4>SERVICES</h4>
+      <ul>
+        <li><a href="services.html">Brand Identity</a></li>
+        <li><a href="services.html">Web Design</a></li>
+        <li><a href="services.html">Print &amp; Editorial</a></li>
+        <li><a href="services.html">Art Direction</a></li>
+        <li><a href="services.html">Motion &amp; Digital</a></li>
+        <li><a href="services.html">Environmental Design</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>STUDIO</h4>
+      <ul>
+        <li>Miami, FL</li>
+        <li>New York, NY</li>
+        <li>San Diego, CA</li>
+        <li><a href="mailto:hello@42westdesign.com">hello@42westdesign.com</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>NAVIGATE</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fgm-bottom">
+    <span>© 2026 42 WEST DESIGN</span>
+    <span>ALL RIGHTS RESERVED</span>
+  </div>
 </footer>
 
 <!-- Back to Top -->
@@ -266,7 +431,7 @@
 
 <!-- Cookie Consent -->
 <div id="cookie-consent">
-  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--gold)">Privacy Policy</a>.</p>
+  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--white)">Privacy Policy</a>.</p>
   <div class="cookie-btns">
     <button class="btn-cookie-accept" id="cookie-accept">Accept</button>
     <button class="btn-cookie-decline" id="cookie-decline">Decline</button>

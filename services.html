@@ -9,14 +9,12 @@
   <meta name="author" content="42 West Design" />
   <link rel="canonical" href="https://www.42westdesign.com/services.html" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.42westdesign.com/services.html" />
   <meta property="og:title" content="Design Services — 42 West Design" />
   <meta property="og:description" content="Full-service graphic design studio in Miami, New York, and San Diego. Web design, branding, packaging, and more." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Design Services — 42 West Design" />
   <meta name="twitter:description" content="10 premium design services for ambitious brands. Based in Miami, New York & San Diego." />
@@ -41,21 +39,29 @@
 
 <!-- Loading Screen -->
 <div id="loading-screen">
-  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:6px 12px;" />
+  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:5px 12px;" />
   <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+</div>
+
+<!-- Consultation Bar -->
+<div id="consultation-bar">
+  FREE CONSULTATION — <a href="contact.html">Book a 30-min strategy call</a>
+  <button id="consultation-bar-close" aria-label="Close">&times;</button>
 </div>
 
 <!-- Navigation -->
 <nav id="main-nav" class="nav-monument">
   <a href="index.html" class="nav-logo" style="text-decoration:none;">
-    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:6px 12px;" />
+    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:5px 12px;" />
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html" class="active">SERVICES</a></li>
-    <li><a href="portfolio.html">WORK</a></li>
+    <li><a href="why-us.html">WHY US</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
+  <a href="contact.html" class="btn-gold nav-cta">GET A QUOTE</a>
   <button class="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -63,18 +69,24 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu">
-  <a href="index.html#about">About</a>
+  <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="portfolio.html">Work</a>
+  <a href="why-us.html">Why Us</a>
+  <a href="portfolio.html">Portfolio</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- Services — Monument Layout -->
-<section id="services-monument" style="padding-top:160px;">
-  <span class="section-bg-num">02</span>
+<!-- Page Hero -->
+<section class="services-hero" style="position:relative;padding-top:160px;overflow:hidden;">
+  <span class="section-bg-num">01</span>
   <div class="section-header">
     <h2>SERVICES</h2>
   </div>
+  <p class="services-hero-sub">Every project begins with listening.</p>
+</section>
+
+<!-- Services Card Grid -->
+<section id="services-monument" style="padding-top:0;">
   <div class="srv-grid">
     <div class="srv-card">
       <span class="srv-code">SRV_01</span>
@@ -129,10 +141,279 @@
   </div>
 </section>
 
-<!-- Footer — Monument -->
-<footer class="footer-monument">
-  <span>© 2026 42 WEST DESIGN</span>
-  <span>ALL RIGHTS RESERVED</span>
+<!-- Service Details — Alternating Layouts -->
+<section class="srv-details-section">
+
+  <!-- SRV_01 Brand Identity -->
+  <div class="srv-detail">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=700&q=80" alt="Brand Identity" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_01</span>
+      <h2>BRAND IDENTITY</h2>
+      <p>A brand is more than a logo — it is a complete visual language that communicates your values before a single word is read. We build brand identities from the ground up, grounded in strategy and executed with fine art precision. Every mark we create is designed to endure decades of use without losing relevance.</p>
+      <ul class="srv-deliverables">
+        <li>Logo design &amp; complete mark system</li>
+        <li>Color palette &amp; typography guidelines</li>
+        <li>Brand voice &amp; messaging framework</li>
+        <li>Comprehensive brand standards manual</li>
+        <li>Business card &amp; stationery design</li>
+        <li>Digital asset library</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_02 Web Design -->
+  <div class="srv-detail srv-detail-reverse">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=700&q=80" alt="Web Design" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_02</span>
+      <h2>WEB DESIGN</h2>
+      <p>We design websites that feel like architecture — spatial, intentional, and impossible to forget. Every layout, transition, and interaction is considered as part of a total experience that guides your visitor from curiosity to conversion. We don't use templates; we build from principles.</p>
+      <ul class="srv-deliverables">
+        <li>Custom UX wireframes &amp; site architecture</li>
+        <li>Full visual design in Figma</li>
+        <li>Responsive design for all devices</li>
+        <li>Development handoff package</li>
+        <li>SEO-optimized page structure</li>
+        <li>Performance &amp; accessibility review</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_03 Print -->
+  <div class="srv-detail">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=700&q=80" alt="Print & Editorial" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_03</span>
+      <h2>PRINT &amp; EDITORIAL</h2>
+      <p>In a digital world, the physicality of print carries more weight than ever. We design publications, annual reports, brochures, and collateral with the eye of an editor and the hand of a craftsman. Paper stock, ink type, binding method — every production decision is deliberate.</p>
+      <ul class="srv-deliverables">
+        <li>Brochures, catalogues &amp; lookbooks</li>
+        <li>Annual reports &amp; corporate publications</li>
+        <li>Business stationery suites</li>
+        <li>Event programs &amp; invitations</li>
+        <li>Print-ready file preparation</li>
+        <li>Print vendor sourcing &amp; oversight</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_04 Social Media -->
+  <div class="srv-detail srv-detail-reverse">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=700&q=80" alt="Social Media Design" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_04 / SRV_09</span>
+      <h2>SOCIAL MEDIA DESIGN</h2>
+      <p>Your social presence is your brand in motion. We design comprehensive social media systems — not single posts but complete visual languages that make every piece of content unmistakably yours. Template libraries, story formats, reel covers, and highlight icons all working as one system.</p>
+      <ul class="srv-deliverables">
+        <li>Social media brand style guide</li>
+        <li>Feed post template library (30+ designs)</li>
+        <li>Instagram Stories &amp; Reels templates</li>
+        <li>Highlight icon sets</li>
+        <li>Editable Canva or Figma source files</li>
+        <li>Content calendar &amp; usage guidelines</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_05 Packaging -->
+  <div class="srv-detail">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Packaging Design" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_05 / SRV_10</span>
+      <h2>PACKAGING DESIGN</h2>
+      <p>Packaging is the first physical touchpoint between your product and the customer. It must work as both a communication tool and a tactile experience. We design packaging that earns its place on the shelf, the unboxing video, and the repeat purchase decision.</p>
+      <ul class="srv-deliverables">
+        <li>Primary &amp; secondary packaging design</li>
+        <li>Structural dieline development</li>
+        <li>Multi-SKU product line systems</li>
+        <li>Retail &amp; e-commerce packaging</li>
+        <li>Unboxing experience design</li>
+        <li>Production-ready artwork files</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_06 Motion -->
+  <div class="srv-detail srv-detail-reverse">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1574717024453-354056aada49?auto=format&fit=crop&w=700&q=80" alt="Motion & Digital" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_06</span>
+      <h2>MOTION &amp; DIGITAL</h2>
+      <p>Motion extends your brand into time. Animated logos, explainer videos, interactive prototypes, and digital experiences that unfold in sequence. We bring the same disciplined approach to motion design that we apply to static work — nothing moves without purpose.</p>
+      <ul class="srv-deliverables">
+        <li>Animated logo &amp; identity mark</li>
+        <li>Explainer &amp; brand videos</li>
+        <li>Social media motion templates</li>
+        <li>Interactive Figma prototypes</li>
+        <li>Presentation animations</li>
+        <li>Digital ad creative suites</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_07 UI/UX -->
+  <div class="srv-detail">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=700&q=80" alt="UI/UX Design" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_07</span>
+      <h2>UI/UX DESIGN</h2>
+      <p>The best interface is the one you don't notice — because every interaction feels natural. We design digital products through deep user research, systematic information architecture, and a visual language that communicates hierarchy without friction. Beautiful and functional are never in conflict.</p>
+      <ul class="srv-deliverables">
+        <li>User research &amp; persona development</li>
+        <li>Information architecture &amp; user flows</li>
+        <li>Wireframes &amp; interactive prototypes</li>
+        <li>Complete UI design system</li>
+        <li>Usability testing &amp; iteration</li>
+        <li>Developer handoff documentation</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_08 Photography -->
+  <div class="srv-detail srv-detail-reverse">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=80" alt="Photography Direction" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_08</span>
+      <h2>PHOTOGRAPHY DIRECTION</h2>
+      <p>Photographs tell the truth about your brand — or they betray it. We provide complete creative direction for photographic content: concept, styling, location, casting, and post-production oversight. Every image in your library should speak the same visual language.</p>
+      <ul class="srv-deliverables">
+        <li>Creative concept &amp; mood board development</li>
+        <li>Shot list &amp; production planning</li>
+        <li>Photographer &amp; stylist sourcing</li>
+        <li>On-set creative direction</li>
+        <li>Post-production &amp; retouching brief</li>
+        <li>Final image library curation</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_09 Marketing -->
+  <div class="srv-detail">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80" alt="Marketing Collateral" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_09</span>
+      <h2>ART DIRECTION</h2>
+      <p>Creative vision is the rarest resource in any project. We provide senior art direction for campaigns, shoots, product launches, and brand activations — bringing a unified creative eye to every element. Whether you need a fresh perspective on a campaign or a complete creative overhaul, we lead with conviction.</p>
+      <ul class="srv-deliverables">
+        <li>Campaign concept development</li>
+        <li>Creative brief writing</li>
+        <li>Visual narrative &amp; storyboarding</li>
+        <li>Vendor &amp; talent coordination</li>
+        <li>On-set or on-location direction</li>
+        <li>Campaign asset review &amp; approval</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+  <!-- SRV_10 Environmental -->
+  <div class="srv-detail srv-detail-reverse">
+    <div class="srv-detail-image">
+      <img src="https://images.unsplash.com/photo-1497366412874-3415097a27fe?auto=format&fit=crop&w=700&q=80" alt="Environmental Design" loading="lazy" />
+    </div>
+    <div class="srv-detail-content">
+      <span class="srv-code">SRV_10</span>
+      <h2>ENVIRONMENTAL &amp; SPATIAL DESIGN</h2>
+      <p>Your brand exists in physical space as much as on screen. Retail environments, office interiors, trade show exhibits, and wayfinding systems are all extensions of your visual identity. We design for three dimensions with the same rigor we apply to two.</p>
+      <ul class="srv-deliverables">
+        <li>Retail environment &amp; concept design</li>
+        <li>Wayfinding &amp; signage systems</li>
+        <li>Trade show exhibit design</li>
+        <li>Office &amp; lobby environmental graphics</li>
+        <li>Installation &amp; exhibition design</li>
+        <li>Production specifications &amp; vendor brief</li>
+      </ul>
+      <a href="contact.html" class="btn-gold-lg">GET A QUOTE →</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Final CTA -->
+<section class="services-cta">
+  <div class="services-cta-inner">
+    <div class="cta-headline">
+      <span class="solid">LET'S BUILD</span>
+      <span class="outline">SOMETHING.</span>
+    </div>
+    <a href="contact.html" class="btn-gold-lg">START A PROJECT →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-grid-monument">
+  <div class="fgm-inner">
+    <div class="fgm-col fgm-brand">
+      <img src="images/logo.jpg" alt="42 West Design" style="background:#fff;padding:5px 12px;" />
+      <p class="fgm-tagline">Design — Art Direction — Brand</p>
+      <div class="fgm-socials">
+        <a href="https://www.linkedin.com/company/42westdesign" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/42westdesign" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.behance.net/42westdesign" target="_blank" rel="noopener">BEHANCE</a>
+      </div>
+    </div>
+    <div class="fgm-col">
+      <h4>SERVICES</h4>
+      <ul>
+        <li><a href="services.html">Brand Identity</a></li>
+        <li><a href="services.html">Web Design</a></li>
+        <li><a href="services.html">Print &amp; Editorial</a></li>
+        <li><a href="services.html">Art Direction</a></li>
+        <li><a href="services.html">Motion &amp; Digital</a></li>
+        <li><a href="services.html">Environmental Design</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>STUDIO</h4>
+      <ul>
+        <li>Miami, FL</li>
+        <li>New York, NY</li>
+        <li>San Diego, CA</li>
+        <li><a href="mailto:hello@42westdesign.com">hello@42westdesign.com</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>NAVIGATE</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fgm-bottom">
+    <span>© 2026 42 WEST DESIGN</span>
+    <span>ALL RIGHTS RESERVED</span>
+  </div>
 </footer>
 
 <!-- Back to Top -->
@@ -140,7 +421,7 @@
 
 <!-- Cookie Consent -->
 <div id="cookie-consent">
-  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--gold)">Privacy Policy</a>.</p>
+  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--white)">Privacy Policy</a>.</p>
   <div class="cookie-btns">
     <button class="btn-cookie-accept" id="cookie-accept">Accept</button>
     <button class="btn-cookie-decline" id="cookie-decline">Decline</button>

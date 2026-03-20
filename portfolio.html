@@ -39,21 +39,29 @@
 
 <!-- Loading Screen -->
 <div id="loading-screen">
-  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:6px 12px;" />
+  <img src="images/logo.jpg" alt="42 West Design" class="loading-logo" style="background:#fff;padding:5px 12px;" />
   <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+</div>
+
+<!-- Consultation Bar -->
+<div id="consultation-bar">
+  FREE CONSULTATION — <a href="contact.html">Book a 30-min strategy call</a>
+  <button id="consultation-bar-close" aria-label="Close">&times;</button>
 </div>
 
 <!-- Navigation -->
 <nav id="main-nav" class="nav-monument">
   <a href="index.html" class="nav-logo" style="text-decoration:none;">
-    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:6px 12px;" />
+    <img src="images/logo.jpg" alt="42 West Design Logo" style="background:#fff;padding:5px 12px;" />
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html">SERVICES</a></li>
-    <li><a href="portfolio.html" class="active">WORK</a></li>
+    <li><a href="why-us.html">WHY US</a></li>
+    <li><a href="portfolio.html" class="active">PORTFOLIO</a></li>
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
+  <a href="contact.html" class="btn-gold nav-cta">GET A QUOTE</a>
   <button class="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -61,29 +69,73 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu">
-  <a href="index.html#about">About</a>
+  <a href="index.html">Home</a>
   <a href="services.html">Services</a>
-  <a href="portfolio.html">Work</a>
+  <a href="why-us.html">Why Us</a>
+  <a href="portfolio.html">Portfolio</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- Portfolio -->
-<section class="portfolio-section" style="position:relative;padding-top:160px;overflow:hidden;">
-  <span class="section-bg-num">03</span>
+<!-- Page Hero -->
+<section class="portfolio-hero" style="position:relative;padding-top:160px;overflow:hidden;">
+  <span class="section-bg-num">01</span>
   <div class="section-header">
     <h2>WORK</h2>
   </div>
-  <!-- Filters -->
-  <div class="portfolio-filters reveal">
-    <button class="filter-btn active" data-filter="all">All Work</button>
-    <button class="filter-btn" data-filter="web">Web Design</button>
-    <button class="filter-btn" data-filter="branding">Branding</button>
-    <button class="filter-btn" data-filter="print">Print</button>
-    <button class="filter-btn" data-filter="social">Social Media</button>
-    <button class="filter-btn" data-filter="packaging">Packaging</button>
+  <!-- Hero Marquee -->
+  <div class="marquee-wrap" style="position:relative;border-top:1px solid rgba(255,255,255,0.07);margin-top:40px;">
+    <div class="marquee-track">
+      <span class="marquee-text">Web Design&nbsp;—&nbsp;Branding&nbsp;—&nbsp;Print&nbsp;—&nbsp;Packaging&nbsp;—&nbsp;Social Media&nbsp;—&nbsp;Motion&nbsp;—&nbsp;Photography&nbsp;—&nbsp;UI/UX&nbsp;—&nbsp;Environmental&nbsp;—&nbsp;</span>
+      <span class="marquee-text">Web Design&nbsp;—&nbsp;Branding&nbsp;—&nbsp;Print&nbsp;—&nbsp;Packaging&nbsp;—&nbsp;Social Media&nbsp;—&nbsp;Motion&nbsp;—&nbsp;Photography&nbsp;—&nbsp;UI/UX&nbsp;—&nbsp;Environmental&nbsp;—&nbsp;</span>
+    </div>
   </div>
+</section>
 
-  <!-- Grid -->
+<!-- Filter Bar -->
+<section class="portfolio-filter-section" style="padding-top:60px;padding-bottom:0;">
+  <div class="portfolio-filters reveal">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="web">WEB</button>
+    <button class="filter-btn" data-filter="branding">BRANDING</button>
+    <button class="filter-btn" data-filter="print">PRINT</button>
+    <button class="filter-btn" data-filter="social">SOCIAL</button>
+    <button class="filter-btn" data-filter="packaging">PACKAGING</button>
+  </div>
+</section>
+
+<!-- Monument Work Cell Grid (3×2 numbered) -->
+<section id="work-monument" style="padding-top:60px;">
+  <div class="work-cell-grid">
+    <div class="work-cell">
+      <span class="work-cell-num">01</span>
+      <div class="work-cell-hover"><span>PROJECT TITLE — COMING SOON</span></div>
+    </div>
+    <div class="work-cell">
+      <span class="work-cell-num">02</span>
+      <div class="work-cell-hover"><span>PROJECT TITLE — COMING SOON</span></div>
+    </div>
+    <div class="work-cell">
+      <span class="work-cell-num">03</span>
+      <div class="work-cell-hover"><span>PROJECT TITLE — COMING SOON</span></div>
+    </div>
+    <div class="work-cell">
+      <span class="work-cell-num">04</span>
+      <div class="work-cell-hover"><span>PROJECT TITLE — COMING SOON</span></div>
+    </div>
+    <div class="work-cell">
+      <span class="work-cell-num">05</span>
+      <div class="work-cell-hover"><span>PROJECT TITLE — COMING SOON</span></div>
+    </div>
+    <div class="work-cell">
+      <span class="work-cell-num">06</span>
+      <div class="work-cell-hover"><span>PROJECT TITLE — COMING SOON</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Grid — 12 Items with Hover -->
+<section class="portfolio-section" style="padding-top:80px;">
+
   <div class="portfolio-grid">
 
     <div class="portfolio-item"
@@ -92,36 +144,42 @@
       data-description="Complete brand identity for a premium craft spirits company targeting the luxury market. Includes logo system, typography, color palette, brand guidelines, and custom illustration assets."
       data-tags="Brand Identity, Logo Design, Typography, Illustration">
       <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Luminary Spirits Co. Brand Identity" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Luminary Spirits Co.</h3>
-        <span>Branding</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">01</span>
+        <span class="pto-cat">BRANDING</span>
+        <div class="pto-hover">
+          <span class="pto-title">Luminary Spirits Co.</span>
+        </div>
       </div>
     </div>
 
-    <div class="portfolio-item tall"
+    <div class="portfolio-item"
       data-category="web"
       data-title="Vertex Capital Website"
-      data-description="Award-winning website for a New York FinTech investment firm. Custom design with complex data visualizations, investor portal, and a conversion-optimized marketing site that tripled lead generation."
+      data-description="Award-winning website for a New York FinTech investment firm. Custom design with complex data visualizations, investor portal, and a conversion-optimized marketing site."
       data-tags="Web Design, Development, UX, FinTech">
-      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=600&q=80" alt="Vertex Capital Website" loading="lazy" style="height:100%;" />
-      <div class="portfolio-overlay">
-        <h3>Vertex Capital</h3>
-        <span>Web Design</span>
-        <button class="view-btn">View Project →</button>
+      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=600&q=80" alt="Vertex Capital Website" loading="lazy" />
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">02</span>
+        <span class="pto-cat">WEB</span>
+        <div class="pto-hover">
+          <span class="pto-title">Vertex Capital</span>
+        </div>
       </div>
     </div>
 
     <div class="portfolio-item"
       data-category="packaging"
       data-title="Botanica Skincare Packaging"
-      data-description="Full packaging redesign for a San Diego skincare brand launching into Sephora retail. The new packaging system drove $2M+ in first-year retail sales and won a Dieline Award."
+      data-description="Full packaging redesign for a San Diego skincare brand launching into Sephora retail. The new packaging system drove $2M+ in first-year retail sales."
       data-tags="Packaging Design, Print, Brand Identity, Retail">
       <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Botanica Skincare Packaging" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Botanica Skincare</h3>
-        <span>Packaging</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">03</span>
+        <span class="pto-cat">PACKAGING</span>
+        <div class="pto-hover">
+          <span class="pto-title">Botanica Skincare</span>
+        </div>
       </div>
     </div>
 
@@ -131,10 +189,12 @@
       data-description="Elegant luxury brand identity for a Miami fashion boutique. The identity system spans logo, wordmark, custom monogram, shopping bags, tissue paper, and a complete in-store experience."
       data-tags="Brand Identity, Luxury Design, Print, Retail">
       <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=600&q=80" alt="Aurelia Boutique Brand" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Aurelia Boutique</h3>
-        <span>Branding</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">04</span>
+        <span class="pto-cat">BRANDING</span>
+        <div class="pto-hover">
+          <span class="pto-title">Aurelia Boutique</span>
+        </div>
       </div>
     </div>
 
@@ -144,10 +204,12 @@
       data-description="Comprehensive social media design system for a beverage brand launching in 3 markets. Includes 60+ post templates, story templates, reel covers, and a social brand style guide."
       data-tags="Social Media, Template Design, Brand Guidelines">
       <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="NovaBev Social Media System" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>NovaBev Social System</h3>
-        <span>Social Media</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">05</span>
+        <span class="pto-cat">SOCIAL</span>
+        <div class="pto-hover">
+          <span class="pto-title">NovaBev Social System</span>
+        </div>
       </div>
     </div>
 
@@ -157,23 +219,27 @@
       data-description="Complete digital transformation for a Miami healthcare provider. New website with patient portal, online booking system, and SEO-optimized content drove 240% more organic traffic in 90 days."
       data-tags="Web Design, Healthcare, UX/UI, SEO">
       <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=600&q=80" alt="Meridian Health Platform" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Meridian Health Platform</h3>
-        <span>Web Design</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">06</span>
+        <span class="pto-cat">WEB</span>
+        <div class="pto-hover">
+          <span class="pto-title">Meridian Health Platform</span>
+        </div>
       </div>
     </div>
 
-    <div class="portfolio-item tall"
+    <div class="portfolio-item"
       data-category="print"
       data-title="TechForge Annual Report"
       data-description="80-page luxury annual report for a New York technology company. Editorial design combining data visualization, photography direction, and premium production — printed on uncoated stock with foil stamping."
       data-tags="Print Design, Annual Report, Editorial, Data Visualization">
-      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="TechForge Annual Report" loading="lazy" style="height:100%;" />
-      <div class="portfolio-overlay">
-        <h3>TechForge Annual Report</h3>
-        <span>Print</span>
-        <button class="view-btn">View Project →</button>
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="TechForge Annual Report" loading="lazy" />
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">07</span>
+        <span class="pto-cat">PRINT</span>
+        <div class="pto-hover">
+          <span class="pto-title">TechForge Annual Report</span>
+        </div>
       </div>
     </div>
 
@@ -183,10 +249,12 @@
       data-description="Full rebrand for a multi-location food & beverage group spanning Miami and San Diego. New identity system covers 8 restaurant concepts with a cohesive master brand architecture."
       data-tags="Brand Architecture, Restaurant Branding, Identity System">
       <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Horizon Foods Brand Identity" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Horizon Foods</h3>
-        <span>Branding</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">08</span>
+        <span class="pto-cat">BRANDING</span>
+        <div class="pto-hover">
+          <span class="pto-title">Horizon Foods</span>
+        </div>
       </div>
     </div>
 
@@ -196,10 +264,12 @@
       data-description="Boutique packaging design for a premium loose-leaf tea brand entering specialty retail. 12 SKU packaging system with hand-illustrated botanicals and foil embossing on kraft board."
       data-tags="Packaging Design, Illustration, Specialty Retail">
       <img src="https://images.unsplash.com/photo-1574717024453-354056aada49?auto=format&fit=crop&w=600&q=80" alt="Solstice Tea Company" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Solstice Tea Company</h3>
-        <span>Packaging</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">09</span>
+        <span class="pto-cat">PACKAGING</span>
+        <div class="pto-hover">
+          <span class="pto-title">Solstice Tea Company</span>
+        </div>
       </div>
     </div>
 
@@ -209,10 +279,12 @@
       data-description="Premium social media visual identity for a luxury real estate firm in Miami Beach. 45-template design system including property showcases, market reports, and agent spotlight content."
       data-tags="Social Media, Real Estate, Luxury Brand, Templates">
       <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="Prism Real Estate Social" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Prism Real Estate</h3>
-        <span>Social Media</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">10</span>
+        <span class="pto-cat">SOCIAL</span>
+        <div class="pto-hover">
+          <span class="pto-title">Prism Real Estate</span>
+        </div>
       </div>
     </div>
 
@@ -222,10 +294,12 @@
       data-description="Minimal, portfolio-focused website for a boutique architecture firm in San Diego. Full-screen project galleries, smooth animations, and a CMS that allows the team to update projects easily."
       data-tags="Web Design, Architecture, Portfolio, Webflow">
       <img src="https://images.unsplash.com/photo-1497366412874-3415097a27fe?auto=format&fit=crop&w=600&q=80" alt="Studio Ven Architecture Website" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Studio Ven Architecture</h3>
-        <span>Web Design</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">11</span>
+        <span class="pto-cat">WEB</span>
+        <div class="pto-hover">
+          <span class="pto-title">Studio Ven Architecture</span>
+        </div>
       </div>
     </div>
 
@@ -235,10 +309,12 @@
       data-description="Complete print collateral suite for a Miami healthcare provider — brochures, appointment cards, prescription pads, letterhead, and environmental signage for 3 clinic locations."
       data-tags="Print Design, Healthcare, Collateral, Signage">
       <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=600&q=80" alt="Meridian Health Collateral" loading="lazy" />
-      <div class="portfolio-overlay">
-        <h3>Meridian Health Collateral</h3>
-        <span>Print</span>
-        <button class="view-btn">View Project →</button>
+      <div class="portfolio-thumb-overlay">
+        <span class="pto-num">12</span>
+        <span class="pto-cat">PRINT</span>
+        <div class="pto-hover">
+          <span class="pto-title">Meridian Health Collateral</span>
+        </div>
       </div>
     </div>
 
@@ -261,10 +337,53 @@
   </div>
 </div>
 
-<!-- Footer — Monument -->
-<footer class="footer-monument">
-  <span>© 2026 42 WEST DESIGN</span>
-  <span>ALL RIGHTS RESERVED</span>
+<!-- Footer -->
+<footer class="footer-grid-monument">
+  <div class="fgm-inner">
+    <div class="fgm-col fgm-brand">
+      <img src="images/logo.jpg" alt="42 West Design" style="background:#fff;padding:5px 12px;" />
+      <p class="fgm-tagline">Design — Art Direction — Brand</p>
+      <div class="fgm-socials">
+        <a href="https://www.linkedin.com/company/42westdesign" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/42westdesign" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.behance.net/42westdesign" target="_blank" rel="noopener">BEHANCE</a>
+      </div>
+    </div>
+    <div class="fgm-col">
+      <h4>SERVICES</h4>
+      <ul>
+        <li><a href="services.html">Brand Identity</a></li>
+        <li><a href="services.html">Web Design</a></li>
+        <li><a href="services.html">Print &amp; Editorial</a></li>
+        <li><a href="services.html">Art Direction</a></li>
+        <li><a href="services.html">Motion &amp; Digital</a></li>
+        <li><a href="services.html">Environmental Design</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>STUDIO</h4>
+      <ul>
+        <li>Miami, FL</li>
+        <li>New York, NY</li>
+        <li>San Diego, CA</li>
+        <li><a href="mailto:hello@42westdesign.com">hello@42westdesign.com</a></li>
+      </ul>
+    </div>
+    <div class="fgm-col">
+      <h4>NAVIGATE</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fgm-bottom">
+    <span>© 2026 42 WEST DESIGN</span>
+    <span>ALL RIGHTS RESERVED</span>
+  </div>
 </footer>
 
 <!-- Back to Top -->
@@ -272,7 +391,7 @@
 
 <!-- Cookie Consent -->
 <div id="cookie-consent">
-  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--gold)">Privacy Policy</a>.</p>
+  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:var(--white)">Privacy Policy</a>.</p>
   <div class="cookie-btns">
     <button class="btn-cookie-accept" id="cookie-accept">Accept</button>
     <button class="btn-cookie-decline" id="cookie-decline">Decline</button>
