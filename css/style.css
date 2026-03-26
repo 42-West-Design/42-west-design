@@ -4076,3 +4076,129 @@ footer {
 /* ============================================================
    END MERGED ADDITIONS
    ============================================================ */
+
+/* ============================================================
+   TRENDS. & STANDARD. Animations
+   ============================================================ */
+
+/* ── TRENDS: chromatic glitch layers ── */
+.word-trends {
+  position: relative;
+  display: block;
+  cursor: default;
+}
+
+.word-trends::before,
+.word-trends::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  font: inherit;
+  color: transparent;
+  pointer-events: none;
+}
+
+/* red channel */
+.word-trends::before {
+  -webkit-text-stroke: 1px rgba(255, 40, 40, 0.75);
+  animation: glitch-red 6s infinite;
+}
+
+/* blue channel */
+.word-trends::after {
+  -webkit-text-stroke: 1px rgba(60, 120, 255, 0.75);
+  animation: glitch-blue 6s infinite;
+}
+
+@keyframes glitch-red {
+  0%,  82%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  84%            { clip-path: inset(5%  0 55% 0); transform: translate(-7px, 1px); }
+  86%            { clip-path: inset(20% 0 30% 0); transform: translate(5px, -2px); }
+  88%            { clip-path: inset(45% 0 10% 0); transform: translate(-3px, 0); }
+  90%            { clip-path: inset(0 0 100% 0);  transform: translate(0); }
+}
+
+@keyframes glitch-blue {
+  0%,  82%, 100% { clip-path: inset(100% 0 0 0); transform: translate(0); }
+  84%            { clip-path: inset(55% 0 5%  0); transform: translate(7px, -1px); }
+  86%            { clip-path: inset(30% 0 20% 0); transform: translate(-5px, 2px); }
+  88%            { clip-path: inset(10% 0 45% 0); transform: translate(3px, 0); }
+  90%            { clip-path: inset(100% 0 0 0);  transform: translate(0); }
+}
+
+/* ── TRENDS: whole-word shake at same moment ── */
+@keyframes trends-shake {
+  0%,  82%, 100% { transform: translate(0); }
+  83%            { transform: translate(-3px, 0); }
+  84%            { transform: translate(4px, 1px); }
+  85%            { transform: translate(-2px, -1px); }
+  86%            { transform: translate(3px, 0); }
+  87%            { transform: translate(0); }
+}
+
+.word-trends {
+  animation: trends-shake 6s infinite;
+}
+
+/* ── TRENDS: slash strike-through ── */
+.trends-strike {
+  position: absolute;
+  left: -3%;
+  top: 48%;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  display: block;
+  transition: width 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.word-trends.struck .trends-strike {
+  width: 106%;
+}
+
+/* ── TRENDS: hover burst ── */
+.word-trends:hover::before {
+  animation: none;
+  clip-path: inset(0 0 50% 0);
+  transform: translateX(-8px);
+  transition: none;
+}
+.word-trends:hover::after {
+  animation: none;
+  clip-path: inset(50% 0 0 0);
+  transform: translateX(8px);
+  transition: none;
+}
+
+/* ── STANDARD: solidify flash ── */
+@keyframes standard-solidify {
+  0%   { color: transparent;           -webkit-text-stroke: 1px rgba(255,255,255,0.2); letter-spacing: 0.04em; }
+  25%  { color: rgba(255,255,255,0.95); -webkit-text-stroke: 1px #fff;                 letter-spacing: 0.01em; }
+  55%  { color: rgba(255,255,255,0.15); -webkit-text-stroke: 1px #fff;                 letter-spacing: 0.02em; }
+  100% { color: transparent;           -webkit-text-stroke: 1px #ffffff;              letter-spacing: inherit; }
+}
+
+.word-standard.solidify {
+  animation: standard-solidify 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* ── STANDARD: hover ── */
+.word-standard {
+  display: block;
+  transition: -webkit-text-stroke 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.word-standard:hover {
+  -webkit-text-stroke: 2px #ffffff;
+  transform: scaleX(1.01);
+  transform-origin: left center;
+}
+
+/* ── Scramble state: hide real text while scrambling ── */
+.scrambling {
+  opacity: 1;
+}
