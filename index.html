@@ -516,9 +516,7 @@
             const afterShake = (cb) => isTrends ? cb() : pulse(el, 'shaking', 450, cb);
             afterShake(() => {
               setTimeout(() => {
-                const doFlash = isTrends
-                  ? (thisLoop % 2 === 1)   // TRENDS: odd loops
-                  : (thisLoop % 2 === 0);  // STANDARD: even loops
+                const doFlash = !isTrends; // only STANDARD solidifies
 
                 if (doFlash) {
                   pulse(el, 'solidify', 1800, () => {
