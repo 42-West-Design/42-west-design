@@ -158,7 +158,7 @@
         <span class="solid">WE DON'T FOLLOW</span>
         <span class="outline word-trends" id="word-trends" data-text="TRENDS.">TRENDS.</span>
         <span class="solid">WE SET THE</span>
-        <span class="outline word-standard" id="word-standard" data-text="STANDARD.">STANDARD.</span>
+        <span class="outline word-standard" id="word-standard" data-text="STANDARD." style="animation:none;">STANDARD.</span>
       </div>
     </div>
     <div class="about-body">
@@ -465,56 +465,76 @@
 <script src="js/main.js"></script>
 <script src="js/chat.js"></script>
 <script>
-(function() {
+(function () {
   const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#@$%&!?/\\|[]{}^~';
 
-  function scrambleEl(el, finalText, duration, onDone) {
+  // ── scramble text content, call onDone when finished ──
+  function scramble(el, finalText, ms, onDone) {
     el.textContent = '';
     let f = 0;
-    const total = Math.round(duration / 28);
-    const timer = setInterval(() => {
+    const total = Math.round(ms / 28);
+    const t = setInterval(() => {
       const ratio = f / total;
       let out = '';
       for (let i = 0; i < finalText.length; i++) {
         const ch = finalText[i];
-        out += (ch === '.') ? ch : (ratio > i / (finalText.length - 1) ? ch : CHARS[Math.floor(Math.random() * CHARS.length)]);
+        out += ch === '.' ? ch : (ratio > i / (finalText.length - 1)
+          ? ch : CHARS[Math.floor(Math.random() * CHARS.length)]);
       }
       el.textContent = out;
-      f++;
-      if (f > total) {
+      if (++f > total) {
         el.textContent = finalText;
-        clearInterval(timer);
+        clearInterval(t);
         if (onDone) onDone();
       }
     }, 28);
   }
 
-  let triggered = false;
+  // ── one-shot class: add, wait duration, remove, call onDone ──
+  function pulse(el, cls, ms, onDone) {
+    el.classList.remove(cls);
+    void el.offsetWidth; // force reflow to restart animation
+    el.classList.add(cls);
+    setTimeout(() => { el.classList.remove(cls); if (onDone) onDone(); }, ms);
+  }
 
-  const observer = new IntersectionObserver((entries) => {
+  // ── full repeating cycle for one word ──
+  // cycle: scramble(700ms) → glitch(600ms) → shake(450ms) → solidify(1800ms) → pause(1200ms) → repeat
+  function runCycle(el, finalText) {
+    scramble(el, finalText, 700, () => {
+      setTimeout(() => {
+        pulse(el, 'glitching', 600, () => {
+          setTimeout(() => {
+            pulse(el, 'shaking', 450, () => {
+              setTimeout(() => {
+                pulse(el, 'solidify', 1800, () => {
+                  setTimeout(() => runCycle(el, finalText), 1200);
+                });
+              }, 100);
+            });
+          }, 80);
+        });
+      }, 150);
+    });
+  }
+
+  // ── start both cycles when About section enters viewport ──
+  let started = false;
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !triggered) {
-        triggered = true;
+      if (entry.isIntersecting && !started) {
+        started = true;
         observer.disconnect();
-
         const trendsEl   = document.getElementById('word-trends');
         const standardEl = document.getElementById('word-standard');
-
-        // TRENDS: scramble → glitch loop starts via CSS
-        scrambleEl(trendsEl, 'TRENDS.', 900);
-
-        // STANDARD: scramble (delayed) → solidify flash
-        setTimeout(() => {
-          scrambleEl(standardEl, 'STANDARD.', 1100, () => {
-            setTimeout(() => standardEl.classList.add('solidify'), 120);
-          });
-        }, 500);
+        runCycle(trendsEl,   'TRENDS.');
+        setTimeout(() => runCycle(standardEl, 'STANDARD.'), 700); // staggered start
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.35 });
 
-  const aboutSection = document.getElementById('about');
-  if (aboutSection) observer.observe(aboutSection);
+  const about = document.getElementById('about');
+  if (about) observer.observe(about);
 })();
 </script>
 </body>

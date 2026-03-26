@@ -4078,18 +4078,21 @@ footer {
    ============================================================ */
 
 /* ============================================================
-   TRENDS. & STANDARD. Animations
+   TRENDS. & STANDARD. — Shared Animation System
+   Cycle: scramble → ghost split → shake → solidify → repeat
    ============================================================ */
 
-/* ── TRENDS: chromatic glitch layers ── */
-.word-trends {
+/* ── Base: both words ── */
+.word-trends,
+.word-standard {
   position: relative;
   display: block;
   cursor: default;
 }
 
-.word-trends::before,
-.word-trends::after {
+/* ── Ghost layers (::before = top half, ::after = bottom half) ── */
+.word-trends::before,  .word-trends::after,
+.word-standard::before, .word-standard::after {
   content: attr(data-text);
   position: absolute;
   top: 0; left: 0;
@@ -4097,102 +4100,84 @@ footer {
   font: inherit;
   color: transparent;
   pointer-events: none;
+  clip-path: inset(0 0 100% 0); /* hidden by default */
 }
 
-/* top white layer */
-.word-trends::before {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
-  animation: glitch-top 6s infinite;
+.word-trends::before,  .word-standard::before {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.75);
+}
+.word-trends::after,   .word-standard::after {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.5);
 }
 
-/* bottom white layer */
-.word-trends::after {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
-  animation: glitch-bottom 6s infinite;
+/* ── Ghost split — triggered by .glitching class ── */
+@keyframes ghost-top {
+  0%   { clip-path: inset(5%  0 55% 0); transform: translate(0,      0); }
+  20%  { clip-path: inset(5%  0 55% 0); transform: translate(-8px,  1px); }
+  40%  { clip-path: inset(20% 0 30% 0); transform: translate( 6px, -2px); }
+  60%  { clip-path: inset(45% 0 10% 0); transform: translate(-4px,  1px); }
+  80%  { clip-path: inset(15% 0 40% 0); transform: translate( 5px,  0);   }
+  100% { clip-path: inset(0 0 100% 0);  transform: translate(0,     0);   }
 }
 
-@keyframes glitch-top {
-  0%,  82%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  84%            { clip-path: inset(5%  0 55% 0); transform: translate(-7px, 1px); }
-  86%            { clip-path: inset(20% 0 30% 0); transform: translate(5px, -2px); }
-  88%            { clip-path: inset(45% 0 10% 0); transform: translate(-3px, 0); }
-  90%            { clip-path: inset(0 0 100% 0);  transform: translate(0); }
+@keyframes ghost-bottom {
+  0%   { clip-path: inset(55% 0 5%  0); transform: translate(0,      0); }
+  20%  { clip-path: inset(55% 0 5%  0); transform: translate( 8px, -1px); }
+  40%  { clip-path: inset(30% 0 20% 0); transform: translate(-6px,  2px); }
+  60%  { clip-path: inset(10% 0 45% 0); transform: translate( 4px, -1px); }
+  80%  { clip-path: inset(40% 0 15% 0); transform: translate(-5px,  0);   }
+  100% { clip-path: inset(100% 0 0 0);  transform: translate(0,     0);   }
 }
 
-@keyframes glitch-bottom {
-  0%,  82%, 100% { clip-path: inset(100% 0 0 0); transform: translate(0); }
-  84%            { clip-path: inset(55% 0 5%  0); transform: translate(7px, -1px); }
-  86%            { clip-path: inset(30% 0 20% 0); transform: translate(-5px, 2px); }
-  88%            { clip-path: inset(10% 0 45% 0); transform: translate(3px, 0); }
-  90%            { clip-path: inset(100% 0 0 0);  transform: translate(0); }
+.word-trends.glitching::before,
+.word-standard.glitching::before {
+  animation: ghost-top    0.55s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+}
+.word-trends.glitching::after,
+.word-standard.glitching::after {
+  animation: ghost-bottom 0.55s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
 }
 
-/* ── TRENDS: whole-word shake ── */
-@keyframes trends-shake {
-  0%,  82%, 100% { transform: translate(0); }
-  83%            { transform: translate(-3px, 0); }
-  84%            { transform: translate(4px, 1px); }
-  85%            { transform: translate(-2px, -1px); }
-  86%            { transform: translate(3px, 0); }
-  87%            { transform: translate(0); }
+/* ── Shake — triggered by .shaking class ── */
+@keyframes word-shake {
+  0%   { transform: translate(0); }
+  15%  { transform: translate(-4px,  0);   }
+  30%  { transform: translate( 5px,  1px); }
+  45%  { transform: translate(-3px, -1px); }
+  60%  { transform: translate( 4px,  0);   }
+  75%  { transform: translate(-2px,  1px); }
+  100% { transform: translate(0); }
 }
 
-.word-trends {
-  animation: trends-shake 6s infinite;
+.word-trends.shaking,
+.word-standard.shaking {
+  animation: word-shake 0.4s ease forwards;
 }
 
-/* ── STANDARD: shake — offset by 0.3s after TRENDS ── */
-@keyframes standard-shake {
-  0%,  83.5%, 100% { transform: translate(0); }
-  84.5%             { transform: translate(3px, 0); }
-  85.5%             { transform: translate(-4px, 1px); }
-  86.5%             { transform: translate(2px, -1px); }
-  87.5%             { transform: translate(-2px, 0); }
-  88.5%             { transform: translate(0); }
+/* ── Solidify flash — triggered by .solidify class ── */
+@keyframes solidify-flash {
+  0%   { color: transparent;            -webkit-text-stroke: 1px rgba(255,255,255,0.25); }
+  20%  { color: rgba(255,255,255,1);    -webkit-text-stroke: 1px #fff; }
+  50%  { color: rgba(255,255,255,0.55); -webkit-text-stroke: 1px #fff; }
+  80%  { color: rgba(255,255,255,0.1);  -webkit-text-stroke: 1px rgba(255,255,255,0.6); }
+  100% { color: transparent;            -webkit-text-stroke: 1px #ffffff; }
 }
 
-/* ── TRENDS: hover burst ── */
-.word-trends:hover::before {
-  animation: none;
-  clip-path: inset(0 0 50% 0);
-  transform: translateX(-8px);
-  transition: none;
-}
-.word-trends:hover::after {
-  animation: none;
-  clip-path: inset(50% 0 0 0);
-  transform: translateX(8px);
-  transition: none;
-}
-
-/* ── STANDARD: solidify flash ── */
-@keyframes standard-solidify {
-  0%   { color: transparent;           -webkit-text-stroke: 1px rgba(255,255,255,0.2); letter-spacing: 0.04em; }
-  25%  { color: rgba(255,255,255,0.95); -webkit-text-stroke: 1px #fff;                 letter-spacing: 0.01em; }
-  55%  { color: rgba(255,255,255,0.15); -webkit-text-stroke: 1px #fff;                 letter-spacing: 0.02em; }
-  100% { color: transparent;           -webkit-text-stroke: 1px #ffffff;              letter-spacing: inherit; }
-}
-
+.word-trends.solidify,
 .word-standard.solidify {
-  animation: standard-solidify 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: solidify-flash 1.8s cubic-bezier(0.23,1,0.32,1) forwards;
 }
 
-/* ── STANDARD: hover ── */
-.word-standard {
-  display: block;
-  transition: -webkit-text-stroke 0.3s ease;
-  cursor: default;
-  animation: standard-shake 6s infinite;
-  animation-delay: 0.3s;
+/* ── Hover: snap ghost layers apart ── */
+.word-trends:hover::before,
+.word-standard:hover::before {
+  clip-path: inset(0 0 50% 0) !important;
+  transform: translateX(-8px) !important;
+  animation: none !important;
 }
-
-.word-standard:hover {
-  -webkit-text-stroke: 2px #ffffff;
-  transform: scaleX(1.01);
-  transform-origin: left center;
-}
-
-/* ── Scramble state: hide real text while scrambling ── */
-.scrambling {
-  opacity: 1;
+.word-trends:hover::after,
+.word-standard:hover::after {
+  clip-path: inset(50% 0 0 0) !important;
+  transform: translateX(8px) !important;
+  animation: none !important;
 }
