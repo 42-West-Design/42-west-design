@@ -196,11 +196,11 @@
       let response = '';
 
       if (lower.match(/web|website|design|develop|site/)) {
-        response = "Great! Our web design team creates beautiful, high-performance websites. We handle everything from design to development. Would you like to discuss your project? Email us at hello@42westdesign.com";
+        response = "Great! Our web design team creates beautiful, high-performance websites. We handle everything from design to development. Would you like to discuss your project? Email us at info@42westdesign.com";
       } else if (lower.match(/brand|logo|identity/)) {
         response = "Brand identity is one of our specialties! We create complete brand systems that make lasting impressions. Ready to build something iconic together?";
       } else if (lower.match(/price|cost|budget|quote|how much/)) {
-        response = "Pricing depends on the scope! Most projects range from $2,500–$25,000+. We offer free consultations to provide accurate quotes. Visit our contact page or email hello@42westdesign.com";
+        response = "Pricing depends on the scope! Most projects range from $2,500–$25,000+. We offer free consultations to provide accurate quotes. Visit our contact page or email info@42westdesign.com";
       } else if (lower.match(/portfolio|work|project|example/)) {
         response = "We'd love to show you our work! Browse our portfolio at 42westdesign.com/portfolio.html — 500+ projects across branding, web, print, and more.";
       } else if (lower.match(/location|miami|new york|san diego|office|where/)) {
@@ -218,7 +218,7 @@
   }
 
   function getFallbackResponse() {
-    return "Thanks for reaching out! One of our designers will respond shortly. In the meantime, feel free to browse our work or send us an email at hello@42westdesign.com 📩";
+    return "Thanks for reaching out! One of our designers will respond shortly. In the meantime, feel free to browse our work or send us an email at info@42westdesign.com 📩";
   }
 
   /* ----- Send Button ----- */
