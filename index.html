@@ -498,18 +498,35 @@
     setTimeout(() => { el.classList.remove(cls); if (onDone) onDone(); }, ms);
   }
 
-  // ── full repeating cycle for one word ──
-  // cycle: scramble(700ms) → glitch(600ms) → shake(450ms) → solidify(1800ms) → pause(1200ms) → repeat
-  function runCycle(el, finalText) {
+  // ── shared loop counter — TRENDS increments it at the start of each cycle ──
+  // odd loop (1,3,5…): TRENDS solidifies, STANDARD skips
+  // even loop (2,4,6…): STANDARD solidifies, TRENDS skips
+  let loopCount = 0;
+
+  // ── full repeating cycle ──
+  // isTrends=true increments loopCount; both read it at solidify time
+  function runCycle(el, finalText, isTrends) {
+    if (isTrends) loopCount++;
+    const thisLoop = loopCount;
+
     scramble(el, finalText, 700, () => {
       setTimeout(() => {
         pulse(el, 'glitching', 600, () => {
           setTimeout(() => {
             pulse(el, 'shaking', 450, () => {
               setTimeout(() => {
-                pulse(el, 'solidify', 1800, () => {
-                  setTimeout(() => runCycle(el, finalText), 1200);
-                });
+                const doFlash = isTrends
+                  ? (thisLoop % 2 === 1)   // TRENDS: odd loops
+                  : (thisLoop % 2 === 0);  // STANDARD: even loops
+
+                if (doFlash) {
+                  pulse(el, 'solidify', 1800, () => {
+                    setTimeout(() => runCycle(el, finalText, isTrends), 1200);
+                  });
+                } else {
+                  // skip flash but hold the same total duration so cycles stay in sync
+                  setTimeout(() => runCycle(el, finalText, isTrends), 1800 + 1200);
+                }
               }, 100);
             });
           }, 80);
@@ -527,8 +544,8 @@
         observer.disconnect();
         const trendsEl   = document.getElementById('word-trends');
         const standardEl = document.getElementById('word-standard');
-        runCycle(trendsEl,   'TRENDS.');
-        setTimeout(() => runCycle(standardEl, 'STANDARD.'), 700); // staggered start
+        runCycle(trendsEl,   'TRENDS.',   true);
+        setTimeout(() => runCycle(standardEl, 'STANDARD.', false), 700); // staggered start
       }
     });
   }, { threshold: 0.35 });
