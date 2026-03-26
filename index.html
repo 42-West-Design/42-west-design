@@ -156,7 +156,7 @@
     <div class="about-left">
       <div class="about-statement">
         <span class="solid">WE DON'T FOLLOW</span>
-        <span class="outline word-trends" id="word-trends" data-text="TRENDS.">TRENDS.<span class="trends-strike"></span></span>
+        <span class="outline word-trends" id="word-trends" data-text="TRENDS.">TRENDS.</span>
         <span class="solid">WE SET THE</span>
         <span class="outline word-standard" id="word-standard" data-text="STANDARD.">STANDARD.</span>
       </div>
@@ -468,33 +468,21 @@
 (function() {
   const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#@$%&!?/\\|[]{}^~';
 
-  function scramble(el, finalText, duration, onDone) {
-    const strikePlaceholder = el.querySelector('.trends-strike');
-    let frame = 0;
-    const totalFrames = Math.round(duration / 28);
+  function scrambleEl(el, finalText, duration, onDone) {
+    el.textContent = '';
+    let f = 0;
+    const total = Math.round(duration / 28);
     const timer = setInterval(() => {
-      const ratio = frame / totalFrames;
-      let display = '';
+      const ratio = f / total;
+      let out = '';
       for (let i = 0; i < finalText.length; i++) {
         const ch = finalText[i];
-        if (ch === '.' || ch === ' ') { display += ch; continue; }
-        display += ratio > i / (finalText.length - 1)
-          ? ch
-          : CHARS[Math.floor(Math.random() * CHARS.length)];
+        out += (ch === '.') ? ch : (ratio > i / (finalText.length - 1) ? ch : CHARS[Math.floor(Math.random() * CHARS.length)]);
       }
-      // re-inject strike span if present
-      if (strikePlaceholder) {
-        el.childNodes[0].textContent = display;
-      } else {
-        el.textContent = display;
-      }
-      frame++;
-      if (frame > totalFrames) {
-        if (strikePlaceholder) {
-          el.childNodes[0].textContent = finalText;
-        } else {
-          el.textContent = finalText;
-        }
+      el.textContent = out;
+      f++;
+      if (f > total) {
+        el.textContent = finalText;
         clearInterval(timer);
         if (onDone) onDone();
       }
@@ -509,68 +497,17 @@
         triggered = true;
         observer.disconnect();
 
-        const trendsEl  = document.getElementById('word-trends');
+        const trendsEl   = document.getElementById('word-trends');
         const standardEl = document.getElementById('word-standard');
 
-        // --- TRENDS: scramble → strike ---
-        // Preserve the strike span
-        const strikeSpan = trendsEl.querySelector('.trends-strike');
-        // Set up text node before strike span
-        if (!trendsEl.childNodes[0] || trendsEl.childNodes[0].nodeType !== 3) {
-          trendsEl.insertBefore(document.createTextNode(''), strikeSpan);
-        }
-        trendsEl.childNodes[0].textContent = 'TRENDS.';
+        // TRENDS: scramble → glitch loop starts via CSS
+        scrambleEl(trendsEl, 'TRENDS.', 900);
 
-        scramble({ // proxy object so scramble writes to text node
-          querySelector: () => strikeSpan,
-          childNodes: trendsEl.childNodes,
-          querySelector: (s) => trendsEl.querySelector(s)
-        }, 'TRENDS.', 900, () => {
-          setTimeout(() => trendsEl.classList.add('struck'), 180);
-        });
-
-        // Simpler approach — direct
-        trendsEl.childNodes[0].textContent = '';
-        let f = 0;
-        const total = Math.round(900 / 28);
-        const final = 'TRENDS.';
-        const t1 = setInterval(() => {
-          const ratio = f / total;
-          let out = '';
-          for (let i = 0; i < final.length; i++) {
-            const ch = final[i];
-            out += (ch === '.') ? ch : (ratio > i / (final.length - 1) ? ch : CHARS[Math.floor(Math.random() * CHARS.length)]);
-          }
-          trendsEl.childNodes[0].textContent = out;
-          f++;
-          if (f > total) {
-            trendsEl.childNodes[0].textContent = final;
-            clearInterval(t1);
-            setTimeout(() => trendsEl.classList.add('struck'), 200);
-          }
-        }, 28);
-
-        // --- STANDARD: scramble (delayed) → solidify flash ---
+        // STANDARD: scramble (delayed) → solidify flash
         setTimeout(() => {
-          const final2 = 'STANDARD.';
-          standardEl.textContent = '';
-          let f2 = 0;
-          const total2 = Math.round(1100 / 28);
-          const t2 = setInterval(() => {
-            const ratio = f2 / total2;
-            let out = '';
-            for (let i = 0; i < final2.length; i++) {
-              const ch = final2[i];
-              out += (ch === '.') ? ch : (ratio > i / (final2.length - 1) ? ch : CHARS[Math.floor(Math.random() * CHARS.length)]);
-            }
-            standardEl.textContent = out;
-            f2++;
-            if (f2 > total2) {
-              standardEl.textContent = final2;
-              clearInterval(t2);
-              setTimeout(() => standardEl.classList.add('solidify'), 120);
-            }
-          }, 28);
+          scrambleEl(standardEl, 'STANDARD.', 1100, () => {
+            setTimeout(() => standardEl.classList.add('solidify'), 120);
+          });
         }, 500);
       }
     });

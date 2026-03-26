@@ -4099,19 +4099,19 @@ footer {
   pointer-events: none;
 }
 
-/* red channel */
+/* top white layer */
 .word-trends::before {
-  -webkit-text-stroke: 1px rgba(255, 40, 40, 0.75);
-  animation: glitch-red 6s infinite;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+  animation: glitch-top 6s infinite;
 }
 
-/* blue channel */
+/* bottom white layer */
 .word-trends::after {
-  -webkit-text-stroke: 1px rgba(60, 120, 255, 0.75);
-  animation: glitch-blue 6s infinite;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  animation: glitch-bottom 6s infinite;
 }
 
-@keyframes glitch-red {
+@keyframes glitch-top {
   0%,  82%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
   84%            { clip-path: inset(5%  0 55% 0); transform: translate(-7px, 1px); }
   86%            { clip-path: inset(20% 0 30% 0); transform: translate(5px, -2px); }
@@ -4119,7 +4119,7 @@ footer {
   90%            { clip-path: inset(0 0 100% 0);  transform: translate(0); }
 }
 
-@keyframes glitch-blue {
+@keyframes glitch-bottom {
   0%,  82%, 100% { clip-path: inset(100% 0 0 0); transform: translate(0); }
   84%            { clip-path: inset(55% 0 5%  0); transform: translate(7px, -1px); }
   86%            { clip-path: inset(30% 0 20% 0); transform: translate(-5px, 2px); }
@@ -4127,7 +4127,7 @@ footer {
   90%            { clip-path: inset(100% 0 0 0);  transform: translate(0); }
 }
 
-/* ── TRENDS: whole-word shake at same moment ── */
+/* ── TRENDS: whole-word shake ── */
 @keyframes trends-shake {
   0%,  82%, 100% { transform: translate(0); }
   83%            { transform: translate(-3px, 0); }
@@ -4141,22 +4141,14 @@ footer {
   animation: trends-shake 6s infinite;
 }
 
-/* ── TRENDS: slash strike-through ── */
-.trends-strike {
-  position: absolute;
-  left: -3%;
-  top: 48%;
-  width: 0;
-  height: 2px;
-  background: #ffffff;
-  display: block;
-  transition: width 0.55s cubic-bezier(0.77, 0, 0.175, 1);
-  transform-origin: left center;
-  pointer-events: none;
-}
-
-.word-trends.struck .trends-strike {
-  width: 106%;
+/* ── STANDARD: shake — offset by 0.3s after TRENDS ── */
+@keyframes standard-shake {
+  0%,  83.5%, 100% { transform: translate(0); }
+  84.5%             { transform: translate(3px, 0); }
+  85.5%             { transform: translate(-4px, 1px); }
+  86.5%             { transform: translate(2px, -1px); }
+  87.5%             { transform: translate(-2px, 0); }
+  88.5%             { transform: translate(0); }
 }
 
 /* ── TRENDS: hover burst ── */
@@ -4188,8 +4180,10 @@ footer {
 /* ── STANDARD: hover ── */
 .word-standard {
   display: block;
-  transition: -webkit-text-stroke 0.3s ease, transform 0.3s ease;
+  transition: -webkit-text-stroke 0.3s ease;
   cursor: default;
+  animation: standard-shake 6s infinite;
+  animation-delay: 0.3s;
 }
 
 .word-standard:hover {
