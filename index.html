@@ -513,7 +513,8 @@
       setTimeout(() => {
         pulse(el, 'glitching', 600, () => {
           setTimeout(() => {
-            pulse(el, 'shaking', 450, () => {
+            const afterShake = (cb) => isTrends ? cb() : pulse(el, 'shaking', 450, cb);
+            afterShake(() => {
               setTimeout(() => {
                 const doFlash = isTrends
                   ? (thisLoop % 2 === 1)   // TRENDS: odd loops
