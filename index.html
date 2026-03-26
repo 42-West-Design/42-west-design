@@ -513,7 +513,7 @@
       setTimeout(() => {
         pulse(el, 'glitching', 600, () => {
           setTimeout(() => {
-            const afterShake = (cb) => isTrends ? cb() : pulse(el, 'shaking', 450, cb);
+            const afterShake = (cb) => cb();
             afterShake(() => {
               setTimeout(() => {
                 const doFlash = !isTrends; // only STANDARD solidifies
